@@ -76,7 +76,7 @@ class SecRunner {
                 useClass: reporter_1.GitLabReporter
             });
         }
-        else if (process.env.BITBUCKET_PIPELINES === 'true') {
+        else if (typeof process.env.BITBUCKET_BRANCH === 'string') {
             configuration.container.register(reporter_1.Reporter, {
                 useClass: reporter_1.BitbucketReporter
             });
