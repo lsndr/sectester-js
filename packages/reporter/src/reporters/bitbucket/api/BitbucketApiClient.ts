@@ -1,18 +1,18 @@
 import type { Report, ReportAnnotation, BitbucketConfig } from '../types';
 import type { BitbucketClient } from './BitbucketClient';
 import { BITBUCKET_CONFIG } from './BitbucketConfig';
-import { HttpProxyAgent } from 'http-proxy-agent';
+import { fetch, ProxyAgent } from 'undici';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()
 export class BitbucketApiClient implements BitbucketClient {
-  private readonly proxyAgent: HttpProxyAgent<string> | undefined;
+  private readonly proxyAgent: ProxyAgent | undefined;
 
   constructor(
     @inject(BITBUCKET_CONFIG) private readonly config: BitbucketConfig
   ) {
     if (this.config.usePipelinesProxy && this.config.proxyUrl) {
-      this.proxyAgent = new HttpProxyAgent(this.config.proxyUrl);
+      this.proxyAgent = new ProxyAgent(this.config.proxyUrl);
     }
   }
 
@@ -24,11 +24,16 @@ export class BitbucketApiClient implements BitbucketClient {
       `/repositories/${this.config.workspace}/${this.config.repoSlug}/commit/${this.config.commitSha}/reports/${reportId}`
     );
 
+    console.log('sdfjknsdjkndajknds', {
+      url,
+      body: JSON.stringify(report)
+    });
+
     const res = await fetch(url, {
       method: 'PUT',
       headers: this.getHeaders(),
       body: JSON.stringify(report),
-      ...(this.proxyAgent && { dispatcher: this.proxyAgent as never })
+      dispatcher: this.proxyAgent
     });
 
     if (!res.ok) {
@@ -59,7 +64,7 @@ export class BitbucketApiClient implements BitbucketClient {
         method: 'POST',
         headers: this.getHeaders(),
         body: JSON.stringify(chunk),
-        ...(this.proxyAgent && { dispatcher: this.proxyAgent as never })
+        dispatcher: this.proxyAgent
       });
 
       if (!res.ok) {

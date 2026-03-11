@@ -9,7 +9,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "packages/reporter/dist",
+        "outputPath": "dist/packages/reporter",
         "tsConfig": "packages/reporter/tsconfig.lib.json",
         "packageJson": "packages/reporter/package.json",
         "main": "packages/reporter/src/index.ts",

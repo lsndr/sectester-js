@@ -1,1 +1,0 @@
-{"version":3,"file":"SecTesterError.js","sourceRoot":"","sources":["../../../src/exceptions/SecTesterError.ts"],"names":[],"mappings":";;;AAAA,MAAa,cAAe,SAAQ,KAAK;IACvC,YAAY,OAAgB;QAC1B,KAAK,CAAC,OAAO,CAAC,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,GAAG,CAAC,MAAM,CAAC,IAAI,CAAC;IAC9B,CAAC;CACF;AALD,wCAKC"}
