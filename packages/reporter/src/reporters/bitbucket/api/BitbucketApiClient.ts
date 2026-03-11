@@ -12,7 +12,12 @@ export class BitbucketApiClient implements BitbucketClient {
     @inject(BITBUCKET_CONFIG) private readonly config: BitbucketConfig
   ) {
     if (this.config.usePipelinesProxy && this.config.proxyUrl) {
-      this.proxyAgent = new ProxyAgent(this.config.proxyUrl);
+      // Disable HTTP CONNECT tunneling - the Bitbucket Pipelines proxy
+      // is a simple HTTP forward proxy that doesn't support CONNECT tunneling
+      this.proxyAgent = new ProxyAgent({
+        uri: this.config.proxyUrl,
+        proxyTunnel: false
+      });
     }
   }
 
