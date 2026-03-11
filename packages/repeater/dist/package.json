@@ -1,0 +1,58 @@
+{
+  "name": "@sectester/repeater",
+  "version": "0.49.0",
+  "description": "Package for managing repeaters, which are mandatory for scanning targets on a local network.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeuraLegion/sectester-js.git"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=10"
+  },
+  "author": {
+    "name": "Artem Derevnjuk",
+    "email": "artem.derevnjuk@brightsec.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NeuraLegion/sectester-js/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "security",
+    "testing",
+    "e2e",
+    "test",
+    "typescript",
+    "appsec",
+    "pentesting",
+    "qa",
+    "brightsec",
+    "repeater",
+    "onprem"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "http-proxy-agent": "^7.0.2",
+    "https-proxy-agent": "^7.0.5",
+    "iconv-lite": "^0.6.3",
+    "reflect-metadata": "^0.2.2",
+    "socket.io-client": "^4.8.0",
+    "socket.io-msgpack-parser": "^3.0.2",
+    "socks-proxy-agent": "^8.0.4",
+    "tslib": "~2.6.3",
+    "tsyringe": "^4.8.0"
+  },
+  "peerDependencies": {
+    "@sectester/core": ">=0.16.0 <1.0.0"
+  },
+  "devDependencies": {
+    "socket.io": "^4.8.0"
+  },
+  "types": "./src/index.d.ts",
+  "main": "./src/index.js",
+  "type": "commonjs"
+}

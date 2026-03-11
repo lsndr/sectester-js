@@ -1,0 +1,1 @@
+{"version":3,"file":"ScanAborted.js","sourceRoot":"","sources":["../../../src/exceptions/ScanAborted.ts"],"names":[],"mappings":";;;AAAA,mDAAgD;AAChD,2DAAwD;AAGxD,MAAa,WAAY,SAAQ,6BAAa;IAC5C,IAAI,IAAI;QACN,OAAO,qCAAiB,CAAC,OAAO,CAAC;IACnC,CAAC;IAED,YAAY,MAAkB;QAC5B,KAAK,CAAC,QAAQ,MAAM,GAAG,CAAC,CAAC;IAC3B,CAAC;CACF;AARD,kCAQC"}

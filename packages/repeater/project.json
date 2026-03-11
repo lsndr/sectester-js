@@ -9,7 +9,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/repeater",
+        "outputPath": "packages/repeater/dist",
         "tsConfig": "packages/repeater/tsconfig.lib.json",
         "packageJson": "packages/repeater/package.json",
         "main": "packages/repeater/src/index.ts",
@@ -43,7 +43,7 @@
     "publish": {
       "executor": "./tools/executors:publish",
       "options": {
-        "dist": "dist/packages/repeater"
+        "dist": "packages/repeater/dist"
       }
     }
   }

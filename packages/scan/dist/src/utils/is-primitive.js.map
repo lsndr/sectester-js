@@ -1,0 +1,1 @@
+{"version":3,"file":"is-primitive.js","sourceRoot":"","sources":["../../../src/utils/is-primitive.ts"],"names":[],"mappings":";;;AAAO,MAAM,WAAW,GAAG,CAAC,KAAc,EAAW,EAAE,CACrD,OAAO,KAAK,KAAK,QAAQ;IACzB,OAAO,KAAK,KAAK,QAAQ;IACzB,OAAO,KAAK,KAAK,SAAS;IAC1B,KAAK,KAAK,IAAI;IACd,KAAK,KAAK,SAAS,CAAC;AALT,QAAA,WAAW,eAKF"}

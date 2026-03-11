@@ -1,0 +1,50 @@
+{
+  "name": "@sectester/scan",
+  "version": "0.49.0",
+  "description": "The package defines a simple public API to manage scans and their expectations.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeuraLegion/sectester-js.git"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=10"
+  },
+  "author": {
+    "name": "Artem Derevnjuk",
+    "email": "artem.derevnjuk@brightsec.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NeuraLegion/sectester-js/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "security",
+    "testing",
+    "e2e",
+    "test",
+    "typescript",
+    "appsec",
+    "pentesting",
+    "qa",
+    "brightsec",
+    "scan",
+    "dast"
+  ],
+  "dependencies": {
+    "@har-sdk/core": "~1.4.5",
+    "ci-info": "^4.0.0",
+    "tslib": "~2.6.3",
+    "tsyringe": "^4.8.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "peerDependencies": {
+    "@sectester/core": ">=0.16.0 <1.0.0"
+  },
+  "types": "./src/index.d.ts",
+  "main": "./src/index.js",
+  "type": "commonjs"
+}

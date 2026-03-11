@@ -1,0 +1,1 @@
+{"version":3,"file":"ScanTimedOut.js","sourceRoot":"","sources":["../../../src/exceptions/ScanTimedOut.ts"],"names":[],"mappings":";;;AAAA,mDAAgD;AAChD,2DAAwD;AAExD,MAAa,YAAa,SAAQ,6BAAa;IAC7C,IAAI,IAAI;QACN,OAAO,qCAAiB,CAAC,SAAS,CAAC;IACrC,CAAC;IAED,YAAY,OAAe;QACzB,KAAK,CACH,gDAAgD,OAAO,wBAAwB,CAChF,CAAC;IACJ,CAAC;CACF;AAVD,oCAUC"}

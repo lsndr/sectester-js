@@ -52,6 +52,8 @@
     "lint:all": "nx run-many --target=lint --all",
     "e2e": "nx e2e",
     "build:all": "nx run-many --target=build --all",
+    "clean:all": "rm -rf packages/core/dist packages/repeater/dist packages/reporter/dist packages/runner/dist packages/scan/dist",
+    "pack:all": "npm run clean:all && npm run build:all && npm pack --pack-destination ./packages/core ./packages/core/dist && npm pack --pack-destination ./packages/repeater ./packages/repeater/dist && npm pack --pack-destination ./packages/scan ./packages/scan/dist && npm pack --pack-destination ./packages/runner ./packages/runner/dist && npm pack --pack-destination ./packages/reporter ./packages/reporter/dist",
     "test:all": "nx run-many --target=test --all",
     "test:coverage:all": "nx run-many --target=test --all --coverage",
     "publish:all": "nx run-many --target=publish --all",
@@ -71,7 +73,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "prepare": "is-ci || husky"
+    "prepare": "npm run build:all && (is-ci || husky)"
   },
   "homepage": "https://github.com/NeuraLegion/sectester-js#readme",
   "dependencies": {

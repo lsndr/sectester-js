@@ -9,7 +9,7 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/runner",
+        "outputPath": "packages/runner/dist",
         "tsConfig": "packages/runner/tsconfig.lib.json",
         "packageJson": "packages/runner/package.json",
         "main": "packages/runner/src/index.ts",
@@ -43,7 +43,7 @@
     "publish": {
       "executor": "./tools/executors:publish",
       "options": {
-        "dist": "dist/packages/runner"
+        "dist": "packages/runner/dist"
       }
     }
   }

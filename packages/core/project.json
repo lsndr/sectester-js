@@ -9,17 +9,13 @@
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/core",
+        "outputPath": "packages/core/dist",
         "tsConfig": "packages/core/tsconfig.lib.json",
         "packageJson": "packages/core/package.json",
         "main": "packages/core/src/index.ts",
         "assets": [
           "packages/core/*.md",
-          {
-            "glob": "LICENSE",
-            "input": "",
-            "output": ""
-          }
+          { "glob": "LICENSE", "input": "", "output": "" }
         ]
       }
     },
@@ -43,7 +39,7 @@
     "publish": {
       "executor": "./tools/executors:publish",
       "options": {
-        "dist": "dist/packages/core"
+        "dist": "packages/core/dist"
       }
     }
   }
