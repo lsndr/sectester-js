@@ -28,7 +28,7 @@ container.register(BITBUCKET_CONFIG, {
     workspace,
     repoSlug: process.env.BITBUCKET_REPO_SLUG,
     usePipelinesProxy,
-    proxyUrl: 'http://host.docker.internal:29418'
+    proxyUrl: 'http://localhost:29418'
   }
 });
 container.register(BITBUCKET_CLIENT, { useClass: BitbucketApiClient });
