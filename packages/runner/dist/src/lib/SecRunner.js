@@ -61,6 +61,7 @@ class SecRunner {
         }, this.configuration.container.resolve(scan_1.ScanFactory), this.configuration.container.resolve(reporter_1.Formatter), this.configuration.container.resolve(reporter_1.Reporter));
     }
     async initConfiguration(configuration) {
+        console.log('dsfl;sdfjkdsfjk', process.env.BITBUCKET_BRANCH, typeof process.env.BITBUCKET_BRANCH);
         await configuration.loadCredentials();
         await configuration.fetchProjectId();
         configuration.container.register(reporter_1.Formatter, {
