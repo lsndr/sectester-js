@@ -14,7 +14,7 @@ if (process.env.BITBUCKET_COMMIT) {
 
 // Detect if running in Bitbucket Pipelines
 // In Pipelines, we can use the proxy at localhost:29418 for automatic authentication
-const usePipelinesProxy = process.env.BITBUCKET_PIPELINES === 'true';
+const usePipelinesProxy = typeof process.env.BITBUCKET_BRANCH === 'string';
 
 // Use BITBUCKET_REPO_OWNER for workspace if BITBUCKET_WORKSPACE is not set
 // BITBUCKET_REPO_OWNER is the standard env var in Pipelines
@@ -28,7 +28,7 @@ container.register(BITBUCKET_CONFIG, {
     workspace,
     repoSlug: process.env.BITBUCKET_REPO_SLUG,
     usePipelinesProxy,
-    proxyUrl: usePipelinesProxy ? 'http://localhost:29418' : undefined
+    proxyUrl: 'http://localhost:29418'
   }
 });
 container.register(BITBUCKET_CLIENT, { useClass: BitbucketApiClient });

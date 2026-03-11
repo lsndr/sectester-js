@@ -89,11 +89,6 @@ export class SecRunner {
   }
 
   private async initConfiguration(configuration: Configuration): Promise<void> {
-    console.log(
-      'dsfl;sdfjkdsfjk',
-      process.env.BITBUCKET_BRANCH,
-      typeof process.env.BITBUCKET_BRANCH
-    );
     await configuration.loadCredentials();
     await configuration.fetchProjectId();
 
