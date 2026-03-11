@@ -25,6 +25,8 @@ export class BitbucketApiClient implements BitbucketClient {
     );
 
     console.log('sdfjknsdjkndajknds', {
+      proxyUrl: this.config.proxyUrl,
+      agent: this.proxyAgent,
       url,
       body: JSON.stringify(report)
     });
@@ -96,7 +98,6 @@ export class BitbucketApiClient implements BitbucketClient {
 
   private getHeaders(): Record<string, string> {
     const headers: Record<string, string> = {
-      'accept': 'application/json',
       'Content-Type': 'application/json'
     };
 
