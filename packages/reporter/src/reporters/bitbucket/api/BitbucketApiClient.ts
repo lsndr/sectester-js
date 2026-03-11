@@ -29,12 +29,20 @@ export class BitbucketApiClient implements BitbucketClient {
       body: JSON.stringify(report)
     });
 
-    const res = await fetch(url, {
-      method: 'PUT',
-      headers: this.getHeaders(),
-      body: JSON.stringify(report),
-      dispatcher: this.proxyAgent
-    });
+    let res: any;
+
+    try {
+      res = await fetch(url, {
+        method: 'PUT',
+        headers: this.getHeaders(),
+        body: JSON.stringify(report),
+        dispatcher: this.proxyAgent
+      });
+    } catch (e) {
+      console.error(e);
+
+      throw e;
+    }
 
     if (!res.ok) {
       const errorBody = await res.text();
