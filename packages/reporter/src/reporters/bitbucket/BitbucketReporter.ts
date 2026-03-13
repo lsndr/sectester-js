@@ -8,8 +8,12 @@ import {
   BaseReportBuilder
 } from './builders';
 import { TEST_FILE_PATH_RESOLVER, TestFilePathResolver } from '../../utils';
+import { JUnitReportBuilder, buildJUnitXML } from '../../junit';
 import { inject, injectable } from 'tsyringe';
 import type { Issue, Scan } from '@sectester/scan';
+import { writeFile } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
+import { basename, extname } from 'node:path';
 
 @injectable()
 export class BitbucketReporter implements Reporter {
@@ -46,8 +50,36 @@ export class BitbucketReporter implements Reporter {
     const { report, annotations } = builder.build();
     const reportId = builder.getReportId();
 
+    await Promise.all([
+      this.submitBitbucketReport(reportId, report, annotations),
+      this.generateTestReport(issues)
+    ]);
+  }
+
+  private async submitBitbucketReport(
+    reportId: string,
+    report: Parameters<BitbucketClient['createOrUpdateReport']>[1],
+    annotations: Parameters<BitbucketClient['createAnnotations']>[1]
+  ): Promise<void> {
     await this.bitbucketClient.createOrUpdateReport(reportId, report);
     await this.bitbucketClient.createAnnotations(reportId, annotations);
+  }
+
+  private async generateTestReport(issues: Issue[]): Promise<void> {
+    const testFilePath = this.testFilePathResolver.getTestFilePath();
+    const junitBuilder = new JUnitReportBuilder(issues, testFilePath);
+    const testReport = junitBuilder.build();
+    const reportXml = buildJUnitXML(testReport);
+    const fileName = this.generateUniqueFileName();
+    await writeFile(fileName, reportXml, 'utf-8');
+  }
+
+  private generateUniqueFileName(): string {
+    const baseFilename = this.config.testReportFilename || 'bb-test-report.xml';
+    const ext = extname(baseFilename);
+    const base = basename(baseFilename, ext);
+
+    return `${base}-${randomUUID()}${ext}`;
   }
 
   private createReportBuilder(issues: Issue[]): BaseReportBuilder {

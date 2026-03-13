@@ -28,7 +28,9 @@ container.register(BITBUCKET_CONFIG, {
     workspace,
     repoSlug: process.env.BITBUCKET_REPO_SLUG,
     usePipelinesProxy,
-    proxyUrl: 'http://localhost:29418'
+    proxyUrl: 'http://localhost:29418',
+    testReportFilename:
+      process.env.BITBUCKET_TEST_REPORT_FILENAME || 'bb-test-report.xml'
   }
 });
 container.register(BITBUCKET_CLIENT, { useClass: BitbucketApiClient });

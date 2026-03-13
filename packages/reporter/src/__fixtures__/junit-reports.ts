@@ -1,8 +1,4 @@
-import type {
-  TestReport,
-  JUnitTestSuite,
-  JUnitTestCase
-} from '../reporters/gitlab/types';
+import type { TestReport, JUnitTestSuite, JUnitTestCase } from '../junit/types';
 
 export const createVulnerabilityTestCase = (
   method: string,

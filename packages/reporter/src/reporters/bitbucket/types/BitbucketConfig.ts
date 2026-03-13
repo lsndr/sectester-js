@@ -14,6 +14,11 @@ export interface BitbucketConfig {
    * Defaults to 'http://localhost:29418' when usePipelinesProxy is true.
    */
   proxyUrl?: string;
+  /**
+   * The filename for the JUnit test report XML file.
+   * Defaults to 'bb-test-report.xml'.
+   */
+  testReportFilename?: string;
 }
 
 export const BITBUCKET_CONFIG = Symbol('BITBUCKET_CONFIG');
